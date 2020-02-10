@@ -17,10 +17,13 @@ public class SecondarySortMapper extends Mapper<LongWritable, Text, DateTemperat
 
         String yearMonth = tokens[0] + tokens[1];
         String day = tokens[2];
-        int temprature = Integer.parseInt(tokens[3]);
+        int temperature = Integer.parseInt(tokens[3]);
 
+        pair.setYearMonth(yearMonth);
+        pair.setDay(day);
+        pair.setTemperature(temperature);
+        theTemprature.set(tokens[3]);
 
-
-        super.map(key, value, context);
+        context.write(pair, theTemprature);
     }
 }
