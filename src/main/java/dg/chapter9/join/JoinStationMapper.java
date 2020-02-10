@@ -1,10 +1,10 @@
 package dg.chapter9.join;
 
-import chapter5.pair.TextPair;
+import dg.chapter5.pair.TextPair;
+import dg.util.NcdcStationMetadataParser;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import util.NcdcStationMetadataParser;
 
 import java.io.IOException;
 

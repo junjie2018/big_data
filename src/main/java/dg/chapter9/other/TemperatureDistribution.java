@@ -1,5 +1,7 @@
 package dg.chapter9.other;
 
+import dg.util.JobBuilder;
+import dg.util.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -9,8 +11,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.reduce.LongSumReducer;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
-import util.NcdcRecordParser;
 
 import java.io.IOException;
 

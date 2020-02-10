@@ -1,5 +1,6 @@
 package dg.chapter9.sort;
 
+import dg.util.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.SequenceFile;
@@ -10,7 +11,6 @@ import org.apache.hadoop.mapreduce.lib.output.MapFileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
 
 public class SortByTemperatureToMapFile extends Configured implements Tool {
     @Override

@@ -1,10 +1,10 @@
 package dg.chapter9.other;
 
+import dg.util.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
 
 public class MissingTemperatureFields extends Configured implements Tool {
     @Override

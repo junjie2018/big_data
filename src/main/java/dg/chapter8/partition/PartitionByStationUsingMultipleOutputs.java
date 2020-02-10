@@ -1,5 +1,7 @@
 package dg.chapter8.partition;
 
+import dg.util.JobBuilder;
+import dg.util.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -10,9 +12,6 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
-import util.NcdcRecordParser;
-
 import java.io.IOException;
 
 public class PartitionByStationUsingMultipleOutputs extends Configured implements Tool {

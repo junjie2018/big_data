@@ -1,6 +1,6 @@
 package dg.chapter9.join;
 
-import chapter5.pair.TextPair;
+import dg.chapter5.pair.TextPair;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 

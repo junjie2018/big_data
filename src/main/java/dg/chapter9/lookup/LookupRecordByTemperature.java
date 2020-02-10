@@ -1,5 +1,7 @@
 package dg.chapter9.lookup;
 
+import dg.util.JobBuilder;
+import dg.util.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -11,8 +13,6 @@ import org.apache.hadoop.mapreduce.lib.output.MapFileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
-import util.NcdcRecordParser;
 
 public class LookupRecordByTemperature extends Configured implements Tool {
     @SuppressWarnings("Duplicates")

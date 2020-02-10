@@ -1,5 +1,6 @@
 package dg.chapter8.minimal;
 
+import dg.util.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -9,7 +10,6 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
 
 public class MinimalMapReduceWithDefaults extends Configured implements Tool {
     @Override

@@ -1,10 +1,11 @@
 package dg.chapter2;
 
+
+import dg.util.NcdcRecordParser;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import util.NcdcRecordParser;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class MaxTemperatureMapper
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         parser.parse(value);
-        if (parser.isValidTemprature()) {
+        if (parser.isValidTemperature()) {
             context.write(new Text(parser.getYear()), new IntWritable(parser.getAirTemperature()));
         }
     }

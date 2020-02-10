@@ -1,6 +1,7 @@
 package dg.chapter8;
 
-import chapter8.whole.WholeFileInputFormat;
+import dg.chapter8.whole.WholeFileInputFormat;
+import dg.util.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
@@ -13,7 +14,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
 
 import java.io.IOException;
 

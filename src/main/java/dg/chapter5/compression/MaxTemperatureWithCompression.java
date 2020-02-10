@@ -1,8 +1,9 @@
 package dg.chapter5.compression;
 
-import chapter2.MaxTemperatureDriver;
-import chapter2.MaxTemperatureMapper;
-import chapter2.MaxTemperatureReducer;
+
+import dg.chapter2.MaxTemperatureDriver;
+import dg.chapter2.MaxTemperatureMapper;
+import dg.chapter2.MaxTemperatureReducer;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

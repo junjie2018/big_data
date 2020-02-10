@@ -1,7 +1,10 @@
 package dg.chapter8.multiple_input;
 
-import chapter2.MaxTemperatureMapper;
-import chapter2.MaxTemperatureReducer;
+
+import dg.chapter2.MaxTemperatureMapper;
+import dg.chapter2.MaxTemperatureReducer;
+import dg.util.JobBuilder;
+import dg.util.MetOfficeRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -13,8 +16,7 @@ import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
-import util.JobBuilder;
-import util.MetOfficeRecordParser;
+
 
 import java.io.IOException;
 

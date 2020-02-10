@@ -28,12 +28,12 @@ public class SecondarySortDriver extends Configured implements Tool {
         job.setOutputValueClass(NullWritable.class);
 
         job.setMapperClass(SecondarySortMapper.class);
-        job.setReducerClass(SecondarySortReducer.class);
-        job.setPartitionerClass(DateTempraturePartitioner.class);
-        job.setGroupingComparatorClass(DateTemperatureGroupingComparator.class);
+//        job.setReducerClass(SecondarySortReducer.class);
+//        job.setPartitionerClass(DateTempraturePartitioner.class);
+//        job.setGroupingComparatorClass(DateTemperatureGroupingComparator.class);
 
         boolean status = job.waitForCompletion(true);
-        theLogger.info("run(): status=" + status);
+//        theLogger.info("run(): status=" + status);
         return status ? 0 : 1;
     }
 }

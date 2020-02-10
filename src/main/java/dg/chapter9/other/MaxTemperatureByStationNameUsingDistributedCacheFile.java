@@ -1,6 +1,8 @@
 package dg.chapter9.other;
 
-import chapter2.MaxTemperatureReducer;
+import dg.util.JobBuilder;
+import dg.util.NcdcRecordParser;
+import dg.util.NcdcStationMetadata;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -10,9 +12,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
-import util.NcdcRecordParser;
-import util.NcdcStationMetadata;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,7 +63,7 @@ public class MaxTemperatureByStationNameUsingDistributedCacheFile extends Config
         job.setOutputValueClass(IntWritable.class);
 
         job.setMapperClass(StationTemperatureMapper.class);
-        job.setCombinerClass(MaxTemperatureReducer.class);
+        job.setCombinerClass(MaxTemperatureUsingSecondarySort.MaxTemperatureReducer.class);
         job.setReducerClass(MaxTemperatureReduceWithStationLookup.class);
 
         return job.waitForCompletion(true) ? 0 : 1;

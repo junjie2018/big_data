@@ -1,7 +1,10 @@
 package dg.chapter9.other;
 
 
-import chapter5.pair.IntPair;
+
+import dg.chapter5.pair.IntPair;
+import dg.util.JobBuilder;
+import dg.util.NcdcRecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Job;
@@ -10,8 +13,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import util.JobBuilder;
-import util.NcdcRecordParser;
+
 
 import java.io.IOException;
 

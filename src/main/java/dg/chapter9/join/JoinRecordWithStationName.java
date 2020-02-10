@@ -1,6 +1,8 @@
 package dg.chapter9.join;
 
-import chapter5.pair.TextPair;
+
+import dg.chapter5.pair.TextPair;
+import dg.util.JobBuilder;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -10,7 +12,7 @@ import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
-import util.JobBuilder;
+
 
 public class JoinRecordWithStationName extends Configured implements Tool {
 
