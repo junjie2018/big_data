@@ -1,12 +1,10 @@
 package da;
 
-import da.chapter01.SecondarySortDriver;
 import dg.util.PathUtil;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
 import org.junit.After;
 import org.junit.Before;
 

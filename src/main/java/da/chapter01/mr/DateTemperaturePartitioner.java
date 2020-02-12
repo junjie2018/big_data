@@ -1,4 +1,4 @@
-package da.chapter01;
+package da.chapter01.mr;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
