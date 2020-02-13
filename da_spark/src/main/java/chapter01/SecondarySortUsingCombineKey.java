@@ -5,8 +5,11 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
+import util.DataStructures;
 
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class SecondarySortUsingCombineKey {
     @SuppressWarnings("Duplicates")
@@ -34,6 +37,31 @@ public class SecondarySortUsingCombineKey {
             return new Tuple2<>(tokens[0], timeValue);
         });
 
-        List<Tuple2<String, Tuple2<Integer, Integer>>> output = pairs.collect();
+        JavaPairRDD<String, SortedMap<Integer, Integer>> combined = pairs.combineByKey(
+                // createCombiner
+                (Tuple2<Integer, Integer> x) -> {
+                    SortedMap<Integer, Integer> map = new TreeMap<>();
+                    map.put(x._1, x._2);
+                    return map;
+                },
+                // mergeValue
+                (SortedMap<Integer, Integer> map, Tuple2<Integer, Integer> x) -> {
+                    map.put(x._1, x._2);
+                    return map;
+                },
+                // mergeCombiners
+                (SortedMap<Integer, Integer> map1, SortedMap<Integer, Integer> map2) -> {
+                    if (map1.size() < map2.size()) {
+                        return DataStructures.merge(map1, map2);
+                    } else {
+                        return DataStructures.merge(map1, map2);
+                    }
+                });
+
+        combined.saveAsTextFile(outputPath);
+
+        ctx.close();
+
+        System.exit(0);
     }
 }
