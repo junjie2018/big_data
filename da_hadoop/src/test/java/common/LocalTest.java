@@ -41,6 +41,24 @@ public class LocalTest {
         }
     }
 
+    protected void runTest(Tool driver, String... args) throws Exception {
+        driver.setConf(conf);
+
+        Path input = new Path(TEST_ROOT + inputPath);
+        Path output = new Path(TEST_ROOT + outputPath);
+        fileSystem.delete(output, true);
+
+        String[] paths = new String[]{input.toString(), output.toString()};
+
+        String[] newArgs = new String[args.length + paths.length];
+        System.arraycopy(args, 0, newArgs, 0, args.length);
+        System.arraycopy(paths, 0, newArgs, args.length, paths.length);
+
+        System.out.println(Arrays.toString(newArgs));
+        int exitCode = driver.run(newArgs);
+        assertThat(exitCode, is(0));
+    }
+
     protected void runTest(Tool driver) throws Exception {
         driver.setConf(conf);
 

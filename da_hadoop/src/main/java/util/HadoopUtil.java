@@ -20,7 +20,6 @@ public class HadoopUtil {
         return Arrays.asList(statuses);
     }
 
-    // 不是很懂这个要干嘛
     public static void addJarsToDistributedCache(Configuration conf, String hdfsJarDirectory) throws IOException {
         if (conf == null) {
             return;
@@ -33,7 +32,6 @@ public class HadoopUtil {
         }
     }
 
-    // 不是很懂这个要干嘛
     public static void addJarsToDistributedCache(Job job, String hdfsJarDirectory) throws IOException {
         if (job == null) {
             return;
