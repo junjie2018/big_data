@@ -7,10 +7,6 @@ import org.junit.Test;
 public class SecondarySortDriverLocalTest extends LocalTest {
     @Test
     public void testSecondarySortDriver() throws Exception {
-
-        inputPath = "input/sample_input.txt";
-        outputPath = "output/tmp";
-
-        runTest(new SecondarySortDriver());
+        runTest(new SecondarySortDriver(), "in:sample_input.txt", "out:tmp");
     }
 }

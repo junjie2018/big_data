@@ -20,17 +20,6 @@ public class PathUtil {
         return TEST_ROOT + "output/" + outputDirName;
     }
 
-    public static String[] getPath(String inputFile, String outputDir) {
-        if (StringUtils.isNotBlank(outputDir)) {
-            String outputPath = TEST_ROOT + "output/" + outputDir;
-            deleteFile(new File(outputPath));
-        }
-
-        return new String[]{
-                TEST_ROOT + "input/" + inputFile,
-                TEST_ROOT + "output/" + outputDir};
-    }
-
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void deleteFile(File file) {
         if (!file.exists()) {

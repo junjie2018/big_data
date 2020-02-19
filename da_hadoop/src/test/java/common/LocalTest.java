@@ -15,21 +15,16 @@ import static org.junit.Assert.assertThat;
 
 
 public class LocalTest {
+    private Configuration conf;
+    private FileSystem fileSystem = null;
 
     private static final String TEST_ROOT = "src/test/resources/";
-
-    protected String inputPath = "null";
-    protected String outputPath = "C:\\Users\\Junjie\\Desktop\\data\\tmp";
-
-    protected Configuration conf;
-    protected FileSystem fileSystem = null;
 
     @Before
     public void setUp() throws IOException {
         conf = new Configuration();
         conf.set("fs.defaultFS", "file:///");
         conf.set("mapreduce.framework.name", "local");
-
 
         fileSystem = FileSystem.getLocal(conf);
     }
@@ -42,34 +37,24 @@ public class LocalTest {
     }
 
     protected void runTest(Tool driver, String... args) throws Exception {
+        String[] argsNew = new String[args.length];
+        for (int i = 0; i < args.length; i++) {
+            String arg = args[i];
+            if (arg.startsWith("in:")) {
+                Path input = new Path(PathUtil.getInputPath(arg.substring(3)));
+                argsNew[i] = input.toString();
+            } else if (arg.startsWith("out:")) {
+                Path output = new Path(PathUtil.getOutputPath(arg.substring(4)));
+                argsNew[i] = output.toString();
+            } else {
+                argsNew[i] = arg;
+            }
+        }
+
         driver.setConf(conf);
 
-        Path input = new Path(TEST_ROOT + inputPath);
-        Path output = new Path(TEST_ROOT + outputPath);
-        fileSystem.delete(output, true);
-
-        String[] paths = new String[]{input.toString(), output.toString()};
-
-        String[] newArgs = new String[args.length + paths.length];
-        System.arraycopy(args, 0, newArgs, 0, args.length);
-        System.arraycopy(paths, 0, newArgs, args.length, paths.length);
-
-        System.out.println(Arrays.toString(newArgs));
-        int exitCode = driver.run(newArgs);
-        assertThat(exitCode, is(0));
-    }
-
-    protected void runTest(Tool driver) throws Exception {
-        driver.setConf(conf);
-
-        Path input = new Path(TEST_ROOT + inputPath);
-        Path output = new Path(TEST_ROOT + outputPath);
-        fileSystem.delete(output, true);
-
-        String[] args = new String[]{input.toString(), output.toString()};
-
-        System.out.println(Arrays.toString(args));
-        int exitCode = driver.run(args);
+        System.out.println(Arrays.toString(argsNew));
+        int exitCode = driver.run(argsNew);
         assertThat(exitCode, is(0));
     }
 }

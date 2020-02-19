@@ -7,10 +7,6 @@ public class TopNDriverLocalTest extends LocalTest {
     @Test
     // 不运行该测试，map中的写法并不正确
     public void testTopNDriver() throws Exception {
-
-        inputPath = "input/sample_input_cat.txt";
-        outputPath = "output/tmp";
-
-        runTest(new TopNDriver(),"5");
+        runTest(new TopNDriver(), "5", "in:sample_input_cat.txt", "out:tmp");
     }
 }
