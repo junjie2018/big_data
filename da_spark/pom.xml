@@ -15,21 +15,15 @@
         <!-- spark -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
-            <version>1.2.0</version>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>2.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.10</artifactId>
-            <version>1.2.0</version>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>2.3.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest</artifactId>
-            <version>1.2</version>
-            <scope>test</scope>
-        </dependency>
-
+        
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>

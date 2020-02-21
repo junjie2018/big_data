@@ -44,7 +44,7 @@ public class Top10NonUnique {
                     localTopN.remove(localTopN.firstKey());
                 }
             }
-            return Collections.singletonList(localTopN);
+            return Collections.singletonList(localTopN).iterator();
         });
 
         SortedMap<Integer, String> finalTopN = new TreeMap<>();

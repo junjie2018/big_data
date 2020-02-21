@@ -20,7 +20,7 @@ public class SparkUtil {
     }
 
     public static JavaSparkContext createLocalJavaSparkContext(String applicationName) {
-        SparkConf conf = new SparkConf().setMaster("local").setAppName("SecondarySort");
+        SparkConf conf = new SparkConf().setMaster("local").setAppName(applicationName);
         return new JavaSparkContext(conf);
     }
 }

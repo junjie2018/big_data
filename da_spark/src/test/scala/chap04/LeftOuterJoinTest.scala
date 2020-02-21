@@ -20,4 +20,12 @@ class LeftOuterJoinTest {
       PathUtil.getOutputPath("tmp")))
   }
 
+  @Test
+  def test3(): Unit = {
+    DataFrameLeftOuterJoin.main(Array(
+      PathUtil.getInputPath("user.txt"),
+      PathUtil.getInputPath("transactions.txt"),
+      PathUtil.getOutputPath("tmp")))
+  }
+
 }

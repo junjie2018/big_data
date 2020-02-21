@@ -43,7 +43,7 @@ public class Top10 {
                             top10.remove(top10.firstKey());
                         }
                     }
-                    return Collections.singletonList(top10);
+                    return Collections.singletonList(top10).iterator();
                 });
 
         SortedMap<Integer, String> finalTop10 = new TreeMap<>();

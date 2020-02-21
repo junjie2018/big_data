@@ -61,7 +61,7 @@ public class SparkLeftOuterJoin {
             }
 
             // flatMapToPair的确在这个地方对kvList进行了一次展开
-            return kvList;
+            return kvList.iterator();
         });
 
         JavaPairRDD<String, Iterable<String>> productByLocations = productLocationsRDD.groupByKey();
